@@ -88,6 +88,10 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-
 
 # Add OpenAppFilter
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
+
+echo "PwD== ${PwD}"
+echo "current files"
+ls -lh
 popd
 
 # Mod zzz-default-settings
