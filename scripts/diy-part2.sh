@@ -15,7 +15,8 @@ sed -i 's/192.168.1.1/192.168.123.188/g' package/base-files/files/bin/config_gen
 
 # Clone community packages to package/community
 mkdir package/community
-pushd package/community
+echo $PWD
+pushd "package/community"
 
 # Add luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
