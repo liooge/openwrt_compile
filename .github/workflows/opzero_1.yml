@@ -67,7 +67,7 @@ jobs:
       working-directory: /workdir
       run: |
         wget https://dl.google.com/go/go1.15.2.linux-amd64.tar.gz 
-        sudo  -E tar -xvf go1.15.3.linux-amd64.tar.gz   
+        sudo  -E tar -xvf go1.15.2.linux-amd64.tar.gz   
         sudo -E mv go /usr/local  
         export GOROOT=/usr/local/go 
         export GOPATH=${PWD}/gopath
