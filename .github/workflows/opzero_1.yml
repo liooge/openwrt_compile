@@ -59,14 +59,20 @@ jobs:
         sudo -E apt-get -qq  install g++-arm-linux-gnueabi
         sudo -E apt-get -qq  install gcc-arm-linux-gnueabi
         sudo -E apt-get -qq  install libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev
-        sudo -E apt-get -qq install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi golang-go
+        sudo -E apt-get -qq install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
         
 
 
     - name: Clone source code
       working-directory: /workdir
       run: |
+        wget https://dl.google.com/go/go1.15.2.linux-amd64.tar.gz 
+        sudo  -E tar -xvf go1.15.3.linux-amd64.tar.gz   
+        sudo -E mv go /usr/local  
+        export GOROOT=/usr/local/go 
         export GOPATH=${PWD}/gopath
+        export PATH=$GOPATH/bin:$GOROOT/bin:$PATH 
+        go version
         go get -d github.com/rfjakob/gocryptfs
         cd $(go env GOPATH)/src/github.com/rfjakob/gocryptfs
         ./build.bash
