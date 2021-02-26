@@ -55,6 +55,16 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+        ###
+        sudo -E apt-get -qq  install g++-arm-linux-gnueabi
+        sudo -E apt-get -qq  install gcc-arm-linux-gnueabi
+        sudo -E apt-get -qq  install libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev
+        sudo -E apt-get -qq install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi golang-go
+        export GOPATH=${PWD}/gopath
+        go get -d github.com/rfjakob/gocryptfs
+        cd $(go env GOPATH)/src/github.com/rfjakob/gocryptfs
+        ./build.bash
+
 
     - name: Clone source code
       working-directory: /workdir
