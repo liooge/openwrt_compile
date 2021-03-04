@@ -181,7 +181,7 @@ jobs:
 
 
     - name: Upload Bin to cowtransfer
-      id: cowtransfer
+      id: cowtransfer2
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
