@@ -52,7 +52,7 @@ jobs:
       run: |
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o rs.sh
         chmod a+x rs.sh
-        ./rs.sh
+        ./rs.sh -y
         rustc --version
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
