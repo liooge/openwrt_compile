@@ -50,7 +50,8 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o rs.sh
+        sh -y rs.sh
         rustc --version
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
